@@ -12,7 +12,7 @@ class PetsController < ApplicationController
 
   post '/pets' do
     if !params[:pet].keys.include?("owner_ids")
-      params[:owner]["pet_ids"] = []
+      params[:pet]["owner_ids"] = []
     end
 
     pet = Pet.create(name: params["pet"]["name"])

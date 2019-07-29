@@ -45,7 +45,7 @@ class PetsController < ApplicationController
     end
 
     pet = Pet.find(params[:id])
-    pet.update(params["pet"])
+    pet.name = params["pet"]["name"]
     pet.owners << Owner.create(name: params["owner"]["name"]) if !params["owner"]["name"].empty?
     pet.save
 

@@ -11,6 +11,10 @@ class PetsController < ApplicationController
   end
 
   post '/pets' do
+    if !params[:pet].keys.include?("owner_ids")
+      params[:owner]["pet_ids"] = []
+    end
+
     pet = Pet.create(name: params["pet"]["name"])
     binding.pry
     if !params["pet"]["owner_ids"][0].empty?

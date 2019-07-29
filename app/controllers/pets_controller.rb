@@ -51,7 +51,7 @@ class PetsController < ApplicationController
     elsif !params["pet"]["owner_ids"].empty?
       pet.owner = Owner.find(params["pet"]["owner_ids"][0])
     end
-    binding.pry
+
     pet.save
     redirect to "pets/#{pet.id}"
   end

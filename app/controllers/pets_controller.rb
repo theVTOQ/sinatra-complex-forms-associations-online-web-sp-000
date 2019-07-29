@@ -43,7 +43,7 @@ class PetsController < ApplicationController
     if !params[:pet].keys.include?("owner_ids")
       params[:pet]["owner_ids"] = []
     end
-    binding.pry
+
     pet = Pet.find(params[:id])
     pet.name = params["pet"]["name"]
     if !params["pet"]["owner_ids"].empty?
@@ -51,7 +51,7 @@ class PetsController < ApplicationController
     elsif !params["owner"]["name"].empty?
       pet.owner = Owner.create(name: params["owner"]["name"])
     end
-
+    binding.pry
     pet.save
     redirect to "pets/#{pet.id}"
   end

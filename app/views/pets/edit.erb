@@ -3,7 +3,7 @@
   <input type="hidden" id="hidden" name="_method" value="patch">
 
   <label>Pet's Name:</label>
-  <input type="text" id="pet_name" name="pets[name]" value="<%= @pet.name%>">
+  <input type="text" id="pet_name" name="pet[name]" value="<%= @pet.name%>">
   <br>
 
   <p>Select an existing owner or create a new one below.</p>
@@ -23,4 +23,3 @@
 
   <input type="submit" id="submit" value="update">
 </form>
-  

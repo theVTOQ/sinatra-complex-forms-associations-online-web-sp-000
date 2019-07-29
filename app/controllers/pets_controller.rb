@@ -16,7 +16,7 @@ class PetsController < ApplicationController
     end
 
     pet = Pet.create(name: params["pet"]["name"])
-    if !params["pet"]["owner_ids"][0].empty?
+    if !params["pet"]["owner_ids"].empty?
       pet.owner = Owner.find(params["pet"]["owner_ids"][0])
     elsif !params["owner"]["name"].empty?
       pet.owner = Owner.create(name: params["owner"]["name"])

@@ -46,10 +46,10 @@ class PetsController < ApplicationController
 
     pet = Pet.find(params[:id])
     pet.name = params["pet"]["name"]
-    if !params["pet"]["owner_ids"].empty?
-      pet.owner = Owner.find(params["pet"]["owner_ids"][0])
-    elsif !params["owner"]["name"].empty?
+    if !params["owner"]["name"].empty?
       pet.owner = Owner.create(name: params["owner"]["name"])
+    elsif !params["pet"]["owner_ids"].empty?
+      pet.owner = Owner.find(params["pet"]["owner_ids"][0])
     end
     binding.pry
     pet.save
